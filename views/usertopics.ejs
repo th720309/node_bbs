@@ -1,0 +1,55 @@
+<% include header.ejs %>
+<div class="main">
+    <% include side.ejs %>
+    <div class="panel list-panel panel-left">
+        <div class="panel-header panel-tab">
+            <span>创建的帖子</span>
+        </div>
+        <% topics.forEach(function (topic) { %>
+        <div class="topic-list posttopic">
+            <a class="list-cell" href="/topic/<%= topic._id %>" class="topic-title" title="<%= topic.title %>"></a>
+
+            <div class="topic-tab-wrap">
+                <span class="topic-tab"><%= topic.tab %></span>
+            </div>
+            <div class="topic-title-wrap">
+                <a href="/topic/<%= topic._id %>" class="topic-title" title="<%= topic.title %>">
+                    <%= topic.title %>
+                </a>
+            </div>
+            <div class="topic-avator">
+                <a href="/user/<%= topic.author.name %>"></a>
+                <img src="/img/<%= topic.author.avatar %>" title="<%= topic.author.name %>">
+            </div>
+            <div class="topic-author">
+                <a class="link" href="/user/<%= topic.author.name %>"></a>
+                <div class="name limit"><%= topic.author.name %></div>
+                <div class="time"><%= topic.create_at %></div>
+            </div>
+            <div class="pv">
+                <span class="replay" title="回复数"><%= topic.comment %></span>
+                <span>/</span>
+                <span title="浏览次数"><%= topic.pv %></span>
+            </div>
+        </div>
+        <% }); %>
+        <!--直接在后端做的分页，感觉比较丑……-->
+
+        <div class="pagination">
+            <div><a href="/user/<%=user.name%>/topics?page=1" >首页</a></div>
+            <% if (pageRender.start != 1){%>
+            <div><a href="javascript:;" >...</a></div>
+            <%}%>
+            <% for (var i = pageRender.start;i <= pageRender.end;i++){ %>
+            <div><a href="/user/<%=user.name%>/topics?page=<%= i%>"><%= i%></a></div>
+            <% } %>
+            <% if (pageRender.end != pageNum){%>
+            <div><a href="javascript:;" >...</a></div>
+            <%}%>
+            <div><a href="/user/<%=user.name%>/topics?page=<%= pageNum%>" >末页</a></div>
+        </div>
+
+    </div>
+</div>
+
+<% include footer.ejs %>

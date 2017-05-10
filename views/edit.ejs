@@ -1,0 +1,59 @@
+<% include header.ejs %>
+
+<div class="main">
+    <% include side.ejs %>
+    <div class="panel panel-left panel-user">
+        <div class="panel-header">
+            <ul class="breadcrumb" style="line-height: 40px;">
+                <li><a href="/" class="breadcrumb">主页</a></li>
+                /
+                <li>发布话题</li>
+            </ul>
+        </div>
+        <% include notification.ejs %>
+        <form class="post" method="post" action="/topic/create">
+            <div class="field create-field">
+                <span>选择板块：</span>
+                <select name="tab">
+                    <% ['校园活动', '跳蚤市场', '考研学习', '聊天交友','你问我答','招聘信息'].forEach(function (item) { %>
+                    <option value="<%= item%>" <%= topic.tabValue === item ? 'selected': '' %> ><%= item%></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <div class="field create-field">
+                <span>文章标题：</span>
+                <input type="text"
+                       name="title"
+                       placeholder="标题字数5字以上"
+                       id="title"
+                       value="<%= topic.topicTitle || '' %>">
+            </div>
+            <textarea name="content" id="edit-block">
+                <%= topic.content || '' %>
+            </textarea>
+            <div class="field create-field">
+                <input type='hidden' name='_csrf' value='<%= csrf %>'/>
+                <input type="hidden" name="id" value="<%= topic.id%>">
+                <button type="submit" class="button-default" id="submitBtn">提交</button>
+            </div>
+
+        </form>
+        <div id="test"></div>
+    </div>
+
+</div>
+
+<script>
+    new SimpleMDE({element: document.getElementById('edit-block')});
+    var btn = document.querySelector('#submitBtn')
+    var titleInput = document.querySelector('#title')
+    btn.addEventListener('click',function (event) {
+        if (titleInput.value.length < 5){
+            event.preventDefault()
+            alert('标题字数需5字以上')
+        }
+    })
+
+</script>
+<% include footer.ejs %>

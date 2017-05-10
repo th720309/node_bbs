@@ -1,0 +1,41 @@
+<% include header.ejs %>
+<div class="main">
+    <% include side.ejs %>
+    <div class="panel list-panel panel-left">
+        <div class="panel-header panel-tab">
+            <span>收藏的帖子</span>
+        </div>
+        <% topics.collect.forEach(function (topic) { %>
+        <div class="topic-list posttopic">
+            <a class="list-cell" href="/topic/<%= topic.topicId %>" class="topic-title" title="<%= topic.topicTitle %>"></a>
+
+            <div class="topic-tab-wrap">
+                <span class="topic-tab"><%= topic.topicTab %></span>
+            </div>
+            <div class="topic-title-wrap">
+                <a href="/topic/<%= topic.topicId %>" class="topic-title" title="<%= topic.topicTitle %>">
+                    <%= topic.topicTitle %>
+                </a>
+            </div>
+            <div class="topic-avator">
+                <a href="/user/<%= topic.topicAuthor %>"></a>
+                <img src="/img/<%= topic.topicAuthoravatar %>" title="<%= topic.topicAuthor %>">
+            </div>
+            <div class="topic-author">
+                <a class="link" href="/user/<%= topic.topicAuthor %>"></a>
+                <div class="name limit"><%= topic.topicAuthor %></div>
+                <div class="time"><%= topic.topictime %></div>
+            </div>
+            <div class="pv">
+                <span class="replay" title="回复数"><%= topic.topicComment %></span>
+                <span>/</span>
+                <span title="浏览次数"><%= topic.topicpv %></span>
+            </div>
+        </div>
+        <% }); %>
+
+
+    </div>
+</div>
+
+<% include footer.ejs %>

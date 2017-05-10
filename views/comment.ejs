@@ -1,0 +1,26 @@
+<% if(topic.comment !== 0){ %>
+<div class="panel-left panel">
+    <div class="panel-header">
+        <p><%= topic.comment %> 回复</p>
+    </div>
+    <ul class="comment-block">
+        <% comments.forEach(function (comment) { %>
+        <li class="comment-cell">
+            <div>
+                <img class="avatar" src="/img/<%= comment.author.avatar %>" alt="" width="30" height="30">
+                <span>
+                    <a href="/user/<%= comment.author.name %>" style="color: #666;font-size: 12px"><%= comment.author.name %></a>
+                    <span class="create_time"><%= comment.create_at%></span>
+                    <% if(comment.author.name == topic.author.name){%>
+                        <span class="reply_by_author">作者</span>
+                    <%}%>
+                </span>
+            </div>
+            <div class="comment-content">
+                <div class="markdown-body" style="padding: 0"><%- comment.content %></div>
+            </div>
+        </li>
+        <% }); %>
+    </ul>
+</div>
+<% } %>

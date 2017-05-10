@@ -1,0 +1,41 @@
+<div class="side clearfix">
+    <% if (user){ %>
+    <div class="side-panel panel">
+        <div class="panel-header">
+            <p>个人信息</p>
+        </div>
+        <div class="user-intro">
+            <a href="/user/<%= user.name %>">
+                <img class="avatar" src="/img/<%= user.avatar %>" alt="<%= user.name %>">
+            </a>
+            <a class="user-name" href="/user/<%= user.name %>"><%= user.name %></a>
+            <p><%= user.sex%></p>
+            <p><%= user.grade%></p>
+            <p>积分<%= user.score %></p>
+            <a href="/topic/create">
+                <button class="button-default">发布话题</button>
+            </a>
+        </div>
+    </div>
+    <% }else { %>
+
+    <% } %>
+    <div class="side-panel panel">
+        <div class="panel-header">
+            <p>友情链接</p>
+        </div>
+        <div style="padding:20px;">
+            <p>th是个小屁孩的github:</p>
+            <p style="padding-top: 10px;"><a href="https://github.com/th720309" target="_blank">github</a>，欢迎star</p>
+
+        </div>
+    </div>
+    <div class="side-panel panel">
+        <div class="panel-header">
+            <p>个人网站</p>
+        </div>
+        <div class="app-download">
+            <a href="http://www.tianhao.site" target="_blank"><img src="http://oct3pmpde.bkt.clouddn.com/avator.jpg" alt="app二维码" width="200" height="200"></a>
+        </div>
+    </div>
+</div>

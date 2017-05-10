@@ -1,0 +1,25 @@
+<% include header.ejs %>
+<div class="main signup">
+    <div class="top-color"></div>
+    <div class="signin-container">
+
+        <% include notification.ejs%>
+        <form method="post" action="/signin" class="signup-form">
+            <div class="field">
+                <span class="label">用户名</span>
+                <input type="text" id="name" name="name" placeholder="用户名">
+            </div>
+            <div class="field">
+                <span class="label">密码</span>
+                <input type="password" id="password" name="password" placeholder="密码">
+            </div>
+            <div class="field">
+                <input type='hidden' name='_csrf' value='<%= csrf %>'/>
+                <button type="submit" class="button-default">登录</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<% include footer.ejs %>

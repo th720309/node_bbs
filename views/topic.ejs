@@ -1,0 +1,97 @@
+<% include header.ejs %>
+<div class="main">
+    <div class="side">
+        <div class="side-panel panel">
+            <div class="panel-header">
+                <p>作者</p>
+            </div>
+            <div class="user-intro">
+                <a href="/user/<%= topic.author.name %>">
+                    <img class="avatar" src="/img/<%= topic.author.avatar %>" alt="<%= topic.author.name %>">
+                </a>
+                <a class="user-name" href="/user/<%= topic.author.name %>"><%= topic.author.name %></a>
+                <p><%= sex%></p>
+                <p><%= grade%></p>
+                <p>积分<%= score %></p>
+            </div>
+        </div>
+        <div class="side-panel panel">
+            <div class="panel-header">
+                <p>友情链接</p>
+            </div>
+            <div style="padding:20px;">
+                <p>th是个小屁孩的github:</p>
+                <p style="padding-top: 10px;"><a href="https://github.com/th720309" target="_blank">github</a>，欢迎star</p>
+
+            </div>
+        </div>
+        <div class="side-panel panel">
+            <div class="panel-header">
+                <p>个人网站</p>
+            </div>
+            <div class="app-download">
+                <a href="http://www.tianhao.site" target="_blank"><img src="http://oct3pmpde.bkt.clouddn.com/avator.jpg" alt="app二维码" width="200" height="200"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-left">
+        <div class="article-head">
+            <div>
+                <h1><%= topic.title %></h1>
+                <span>发布于<%= date%></span>
+                <span>作者<a href="/user/<%= topic.author.name %>"><%= topic.author.name %></a></span>
+                <span><%= topic.pv %>次浏览</span>
+                <span>来自<i id="tabValue"><%= topic.tab %></i></span>
+
+                <% if (user && (topic.author.name === user.name)){ %>
+                <form class="clearform" action="/topic/edit/<%= topic._id %>" method="post">
+                    <input type="hidden" name="title" value="<%= topic.title %>">
+                    <input type="hidden" name="content" value="<%= topic.originContent %>">
+                    <input type="hidden" name="tabValue" value="<%= topic.tab %>">
+                    <button class="button-default" type="submit">编辑</button>
+                </form>
+                <% }else if(user){ %>
+                <form class="clearform" action="/topic/<%= isCollect ? 'delCollect' : 'addCollect' %>" method="post">
+                    <input type="hidden" name="topicId" value="<%= topic._id %>">
+                    <input type="hidden" name="topicTitle" value="<%= topic.title %>">
+                    <input type="hidden" name="topicTab" value="<%= topic.tab %>">
+                    <input type="hidden" name="topicAuthor" value="<%= topic.author.name%>">
+                    <input type="hidden" name="topictime" value="<%= topic.create_at%>">
+                    <input type="hidden" name="topicAuthoravatar" value="<%= topic.author.avatar%>">
+                    <input type="hidden" name="topicComment" value="<%= topic.comment%>">
+                    <input type="hidden" name="topicpv" value="<%= topic.pv%>">
+                    <input type='hidden' name='_csrf' value='<%= csrf %>'/>
+                    <input type="submit"
+                           class="button-default"
+                           value="<%= isCollect ? '取消收藏' : '收藏' %>">
+                </form>
+                <% } %>
+            </div>
+        </div>
+        <hr>
+        <% include notification.ejs %>
+        <article class="markdown-body" id="articleContent">
+            <%- topic.content %>
+        </article>
+    </div>
+
+    <% include comment.ejs %>
+
+    <% if(user){ %>
+    <div class="panel panel-left panel-user">
+        <div class="panel-header">
+            <p>添加回复</p>
+        </div>
+        <form class="replayform" action="/topic/<%= topic._id %>/reply" method="post">
+            <textarea name="content" id="comment-block"></textarea>
+            <input type='hidden' name='_csrf' value='<%= csrf %>'/>
+            <button class="button-default" type="submit">回复</button>
+        </form>
+    </div>
+    <% } %>
+</div>
+<script>
+    new SimpleMDE({element: document.getElementById('comment-block')});
+</script>
+<% include footer.ejs %>

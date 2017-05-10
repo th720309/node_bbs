@@ -1,7 +1,8 @@
 ## Node.js+Express+Mongodb 实现学校论坛 ##
 
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/th720309/node_bbs)
+[![Packagist](https://img.shields.io/badge/node--bbs-version1.0-green.svg)](https://github.com/th720309/node_bbs)
 
-----------
 ### 说明 ###
 
 

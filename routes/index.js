@@ -33,7 +33,7 @@ router.get('/', function (req, res,next) {
                 pageRender.end = parseInt(page) + 5
             }
             res.render('index', {
-                title: 'cnode',
+                title: 'bbs',
                 topics: topics,
                 tabs: navtabs,
                 currentTab: req.query.tab || 'all',

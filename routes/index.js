@@ -33,7 +33,11 @@ router.get('/', function (req, res,next) {
                 pageRender.end = parseInt(page) + 5
             }
             res.render('index', {
+<<<<<<< HEAD
                 title: 'djtu论坛',
+=======
+                title: 'bbs',
+>>>>>>> c3b9d189263e6f535c17cf65c343d7f210e388cb
                 topics: topics,
                 tabs: navtabs,
                 currentTab: req.query.tab || 'all',

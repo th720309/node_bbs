@@ -111,18 +111,13 @@ a {
 }
 
 /* ---- header ---- */
-header {
+.header {
     position: fixed;
     background-color: #f8f8f8;
     width: 100vw;
     height: 70px;
     top: 0px;
     z-index: 999;
-}
-
-header ul {
-    margin: 0;
-    padding: 0;
 }
 
 .header-container {
@@ -132,7 +127,49 @@ header ul {
     max-width: 1400px;
     margin: 0 auto;
 }
+#topic-header{
+    left:0;
+    top:0;
+    z-index:999;
+    width: 100%;
+    height: 43px;
+    overflow: hidden;
+    background: #fdfdfc;
+    font: 12px/40px hiragino sans gb, microsoft yahei, simsun;
+    box-shadow:3px 3px 3px rgba(0,0,0,0.2);
 
+}
+#top-line {
+    width: 100%;
+    height: 3px;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+    text-align: center;
+    z-index: 1;
+    background-color: #0fa6ea;
+    background: -webkit-linear-gradient(left, rgba(15,166,234,1) 0, rgba(89,204,24,1) 10%, rgba(15,166,234,1) 60%, rgba(15,166,234,1) 100%);
+    background: -moz-linear-gradient(left, rgba(15,166,234,1) 0, rgba(89,204,24,1) 10%, rgba(15,166,234,1) 60%, rgba(15,166,234,1) 100%);
+    background: -ms-linear-gradient(left, rgba(15,166,234,1) 0, rgba(89,204,24,1) 10%, rgba(15,166,234,1) 60%, rgba(15,166,234,1) 100%);
+    background: linear-gradient(left, rgba(15,166,234,1) 0, rgba(89,204,24,1) 10%, rgba(15,166,234,1) 60%, rgba(15,166,234,1) 100%);
+}
+.swiper-slide {
+    -webkit-flex-shrink: 0;
+    -ms-flex: 0 0 auto;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 0 20px;
+    width: auto;
+}
+#topic-header a{
+    font-size: 14px;
+    color: #80bd01;
+}
+#topic-header a:hover {
+    color: #f3cb03;
+}
 .cnode-logo h2{
     display: inline;
     vertical-align: middle;
@@ -153,7 +190,10 @@ header ul {
     font-size: 16px;
     line-height: 1.4;
     padding: 2px;
-    color: #000000;
+    color: #2d2d2d;
+    font-weight: 100;
+    padding: 6px;
+    border-bottom: 1px solid #eee;
 }
 .nav li a:hover {
     border-bottom: 2px solid #80bd01;
@@ -187,7 +227,7 @@ header ul {
     width: 24px;
     height: 3px;
     border-radius: 2px;
-    background-color: #ffffff;
+    background-color: #80bd01;
     margin: 5px 0;
 }
 
@@ -237,6 +277,13 @@ a.breadcrumb:hover {
     background: url(../img/loginimg.png) rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 10px rgba(13, 5, 9, 0.27);
     text-align: left;
+}
+.sexmobile{
+    display: block;
+    margin: 0 auto;
+}
+.sexpc{
+    margin-left: -170px;
 }
 .clearform{
     margin: 0;
@@ -708,17 +755,26 @@ canvas{
     margin: 0 2px;
 }
 /* ---- 媒体查询 ----*/
+
 @media screen and (min-width: 768px) {
     .nav{
         display: block !important;
+        margin-top: 0;
     }
 }
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1368px) {
+    .topic-title-wrap {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .index{
+        margin-top: 70px;
+    }
     .navbar-toggle {
         display: block;
         position: absolute;
-        top: 5px;
+        top: 10px;
         right: 0;
         width: 30px;
         height: 30px;
@@ -727,21 +783,82 @@ canvas{
     .nav {
         display: none;
         position: absolute;
-        top: 40px;
+        height: 130px;
+        top: 60px;
+        padding: 0;
         right: 0;
-        background-color: #444;
+        background-color: #777;
     }
 
     .nav li {
         display: block;
     }
-
+    .nav li a {
+        font-size: 16px;
+        line-height: 1.4;
+        padding: 2px;
+        color: #fcfcfc;
+        font-weight: 100;
+        padding: 6px;
+        border-bottom: 1px solid #eee;
+    }
     .side {
         display: none;
     }
+    .panel-header{
+        padding-bottom: 15px;
+    }
+    .panel-header ul{
+        line-height: 40px;
+    }
+    .topic-tab-wrap{
+        margin-left: 10px;
+    }
+    .topic-title-wrap{
+        width: 260px;
+        margin-left: 10px;
 
+    }
+    .topic-title-wrap a{
+        letter-spacing: 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .topic-author{
+        margin-left: 50px;
+        width: 100px;
+    }
+    .topic-title-wrap a{
+        display: block;
+        letter-spacing: 0;
+        overflow: hidden;
+        height: 32px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
     .panel-left {
-        width: 100%;
+        width: 98%;
+        margin: 20px auto;
+    }
+    .article-head h1{
+        font-size: 22px;
+        font-weight: 700;
+    }
+    .article-head > div {
+        padding: 25px;
+    }
+    .clearform {
+        margin: 10px;
+    }
+    .signup-container, .signin-container{
+        width: 80%;
+        padding: 26px;
+    }
+    .signup-container form, .signin-container form{
+        margin: 0;
+    }
+    .panel-header{
+        padding: 0 10px;
     }
 }
 
@@ -751,16 +868,88 @@ canvas{
         height: 80px;
         padding-top: 10px;
     }
-
+    .main{
+        width: 100%;
+    }
+    .navbar-toggle {
+        top: 32px;
+    }
     .cnode-logo {
         display: block;
         width: 140px;
         margin: 0 auto;
+        width: 220px;
+        line-height: 60px;
+    }
+    .panel-tab{
+        padding-bottom: 25px;
+    }
+    .panel-header ul{
+        line-height: 40px;
+    }
+    .topic-tab-wrap{
+        margin-left: 10px;
     }
 
-    .header-search {
+    .topic-title-wrap{
+        width: 160px;
+        margin-left: 10px;
+
+    }
+    .topic-title-wrap a{
         display: block;
-        margin: 10px auto;
+        letter-spacing: 0;
+        overflow: hidden;
+        height: 32px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .topic-author{
+        margin-left: 50px;
+        width: 100px;
+    }
+    div.topic-list div.pv{
+        display: none;
+    }
+    .create-field span{
+        width: 100px;
+    }
+    .sexmobile{
+        margin-left: -30%;
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 380px) {
+    div.topic-list div.topic-author{
+        display: none;
+    }
+    div.topic-list div.pv{
+        display: inline-block;
+        margin-left: 60px;
+    }
+
+    .panel-header ul{
+        font-size: 14px;
+    }
+    .create-field.field {
+        margin: 25px 0;
+    }
+    .create-field span{
+        width: 80px;
+    }
+}
+@media screen and (max-width: 340px) {
+    div.topic-list div.pv{
+        display: none;
+    }
+    .panel-header ul {
+        font-size: 14px;
+    }
+    .create-field.field {
+        margin: 15px 0;
+    }
+    .create-field input{
+        width: 160px;
     }
 }
 

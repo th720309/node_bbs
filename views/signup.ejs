@@ -12,9 +12,14 @@
                 <input type="text" id="name" name="name" placeholder="用户名">
             </div>
             <div class="field">
-                <span class="label">性别</span>
-                <input type="text" id="sex" name="sex" placeholder="帅锅or美铝">
+                <span class="label sexpc sexmobile">性别</span>
+              <!--  <input type="text" id="sex" name="sex" placeholder="帅锅or美铝">-->
+                <select name="sex">
+                    <option value="帅锅" selected>帅锅</option>
+                    <option value="美铝">美铝</option>
+                </select>
             </div>
+
             <div class="field">
                 <span class="label">院系年级</span>
                 <input type="text" id="grade" name="grade" placeholder="例如：理学院数学系大四">
@@ -39,71 +44,6 @@
                 <button type="submit" class="button-default">注册</button>
             </div>
         </form>
-        <!--
-        <div class="form" data-role="form-2" data-path="ajax/register_user.php">
-            <input type="hidden" data-role="type" value="2">
-            <div class="row star">
-                <span class="label">用户名</span>
-                <input type="text" class="medium" data-role="username" placeholder="2-12位英文字母">
-                <span class="instruction" style="margin-left: 15px;">发帖时展示，一经注册不可更改</span>
-                <span class="warning-info">请填写仅包含英文字母的用户名</span>
-            </div>
-            <div class="row star">
-                <span class="label">密码</span>
-                <input type="password" class="large" data-role="password" placeholder="8~60位，包含不止一种字符">
-                <span class="warning-info">密码需不少于8位且不多于60位，包含数字、小写字母、大写字母、其他字符中的至少两种</span>
-            </div>
-            <div class="row star"><span class="label">重复密码</span><input type="password" class="large" data-role="password_repeat"><span class="warning-info">两次输入的密码不同</span></div>
-            <div class="row star">
-                <span class="label">真实姓名</span>
-                <input type="text" class="medium" data-role="realname">
-                <span class="instruction" style="margin-left: 15px;">本站承诺不会泄露你的个人信息</span>
-            </div>
-            <div class="row star">
-                <span class="label">院系年级</span>
-                <input type="text" class="ex-large" data-role="dept" placeholder="例：北京大学工学院13级本科生；北京大学医学部信息通讯中心职工">
-                <span class="instruction under">（或工作部门机构）</span>
-            </div>
-            <div class="row star">
-                <span class="label">居住地址</span>
-                <input type="text" class="ex-large" data-role="addr" placeholder="详细到寝室号或门牌号">
-            </div>
-            <div class="row star"><span class="label">电子邮箱</span><input type="text" class="large" data-role="email_full"></div>
-            <div class="row star"><span class="label">联系电话</span><input type="number" class="large" data-role="phone" placeholder="电话或手机，固定电话请注明区号"></div>
-            <div class="row star">
-                <span class="label">生日</span>
-                <input type="number" class="tiny" data-role="birthyear"><span class="tiny-inline-label">年</span>
-                <input type="number" class="ex-tiny" data-role="birthmonth"><span class="tiny-inline-label">月</span>
-                <input type="number" class="ex-tiny" data-role="birthday"><span class="tiny-inline-label">日</span>
-                <input type="checkbox" class="styledbox" id="form-2-checkbox-birthday" data-role="hide_horoscope" name="hide_horoscope" style="margin-left:25px;">
-                <label class="styledbox" for="form-2-checkbox-birthday">不展示我的星座</label>
-                <span class="warning-info">输入的日期不存在</span>
-            </div>
-            <div class="row star"><span class="label">性别</span>
-                <input type="radio" class="styledbox" id="form-2-radio-gender-1" data-role="gender" name="form-2-radio-gender" value="M" checked="">
-                <label class="styledbox" for="form-2-radio-gender-1">男</label>
-                <input type="radio" class="styledbox" id="form-2-radio-gender-2" data-role="gender" name="form-2-radio-gender" value="F">
-                <label class="styledbox" for="form-2-radio-gender-2">女</label>
-                <input type="checkbox" class="styledbox" id="form-2-radio-gender-3" data-role="hide_gender" name="form-2-radio-gender-h">
-                <label class="styledbox" for="form-2-radio-gender-3">不展示我的性别</label>
-            </div>
-            <div class="row star" style="display: none">
-                <span class="label">验证码</span>
-                <input type="text" class="small" data-role="captcha">
-                <span class="captcha-image-wrapper">
-          <img>
-        </span>
-                <a class="red-link" data-action="reset-captcha">换一张</a>
-            </div>
-            <div class="row" style="margin-top: 10px;">
-                <a class="button red" data-action="submit-form">注册</a>
-                <a class="button" data-action="clear-form">清除</a>
-            </div>
-            <div class="row">
-                <span class="instruction">点击注册，即表示你阅读并同意遵守<a class="red-link" data-no-pjax="" href="/v2/collection-read.php?path=groups%2FGROUP_0%2Frules%2FD812D7D8C%2FM.1334508708.A" target="_blank">北大未名BBS总纲</a>，以及各项具体<a class="red-link" data-no-pjax="" href="/v2/collection.php?path=groups%2FGROUP_0%2Frules%2FD812D7D8C" target="_blank">站规细则</a>。</span>
-            </div>
-        </div>
-    </div>-->
     </div>
 </div>
 

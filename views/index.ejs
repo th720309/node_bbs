@@ -1,14 +1,15 @@
 <% include header.ejs %>
-<div class="main">
+<div class="main index">
     <% include side.ejs %>
     <div class="panel list-panel panel-left ">
-        <div class="panel-header panel-tab">
-            <ul class="tabs">
+        <div id="topic-header" class="swiper-container-horizontal swiper-container-free-mode">
+            <div id="top-line"></div>
+            <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
                 <% tabs.forEach(function (t) {
                     var value = t[0], text = t[1]; %>
-                <li><a href="/?tab=<%= value %>" class="<%= value === currentTab ? 'current-tab' : '' %>"><%= text %></a></li>
+                <div class="swiper-slide"><a href="/?tab=<%= value %>" class="<%= value === currentTab ? 'current-tab' : '' %>"><%= text %></a></div>
                 <% }); %>
-            </ul>
+            </div>
         </div>
         <% topics.forEach(function (topic) { %>
         <div class="topic-list">

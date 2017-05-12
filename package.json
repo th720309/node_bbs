@@ -1,7 +1,7 @@
 {
   "name": "node_bbs",
   "version": "0.0.0",
-  "description": "my cnode demo",
+  "description": "DJTU大学生论坛",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",

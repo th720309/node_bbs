@@ -1,11 +1,8 @@
 {
   "name": "node_bbs",
   "version": "0.0.0",
-<<<<<<< HEAD
   "description": "DJTU大学生论坛",
-=======
   "description": "djtu bbs",
->>>>>>> c3b9d189263e6f535c17cf65c343d7f210e388cb
   "private": true,
   "scripts": {
     "start": "node ./bin/www",

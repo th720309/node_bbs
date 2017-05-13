@@ -3,6 +3,9 @@
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/th720309/node_bbs)
 [![Packagist](https://img.shields.io/badge/node--bbs-version1.0-green.svg)](https://github.com/th720309/node_bbs)
 
+### demo地址 ###
+
+http://120.24.185.226:3000/
 
 ### screen ###
 
